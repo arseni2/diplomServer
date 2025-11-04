@@ -15,8 +15,9 @@ async function bootstrap() {
   app.use(bodyParser.json());
   app.use(compression())
   await app.listen(
-      process.env.PORT ? Number(process.env.PORT) : 7777, // порт
+      10000, // порт
       '0.0.0.0'                                           // хост
   );
 }
 bootstrap();
+
