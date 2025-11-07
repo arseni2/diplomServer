@@ -1,4 +1,4 @@
-import {Body, Controller, Post, Req} from '@nestjs/common';
+import {Body, Controller, Post} from '@nestjs/common';
 import {SendMessageDto} from "../dto/SendMessage.dto";
 import {TgService} from "../service/tg.service";
 
@@ -8,8 +8,7 @@ export class TgController {
     }
 
     @Post()
-    sendMessage(@Body() dto: SendMessageDto, @Req() req: Request) {
-        console.log(req);
+    sendMessage(@Body() dto: SendMessageDto) {
         return this.tgService.sendMessage(dto)
     }
 }
