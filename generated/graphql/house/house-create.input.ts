@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { UserCreateNestedOneWithoutHousesInput } from '../user/user-create-nested-one-without-houses.input';
 import { FileCreateNestedManyWithoutHouseInput } from '../file/file-create-nested-many-without-house.input';
 import { FeatureCreateNestedManyWithoutHousesInput } from '../feature/feature-create-nested-many-without-houses.input';
@@ -44,6 +45,12 @@ export class HouseCreateInput {
 
     @Field(() => Boolean, {nullable:true})
     isSell?: boolean;
+
+    @Field(() => Float, {nullable:true})
+    lat?: number;
+
+    @Field(() => Float, {nullable:true})
+    lng?: number;
 
     @Field(() => UserCreateNestedOneWithoutHousesInput, {nullable:false})
     realtor!: UserCreateNestedOneWithoutHousesInput;

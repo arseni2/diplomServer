@@ -1,4 +1,4 @@
-import {Field, InputType} from "@nestjs/graphql";
+import {Field, InputType, Float} from "@nestjs/graphql";
 
 @InputType()
 export class HouseCreateDto {
@@ -37,4 +37,10 @@ export class HouseCreateDto {
 
     @Field(() => String, {nullable:true})
     rooms?: string;
+
+    @Field(() => Float, {nullable:true})
+    lat?: number;
+
+    @Field(() => Float, {nullable:true})
+    lng?: number;
 }

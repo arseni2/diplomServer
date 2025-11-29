@@ -1,22 +1,22 @@
 import { Field } from '@nestjs/graphql';
-import { ObjectType } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
 
-@ObjectType()
-export class HouseAvgAggregate {
+@InputType()
+export class NullableFloatFieldUpdateOperationsInput {
 
     @Field(() => Float, {nullable:true})
-    id?: number;
+    set?: number;
 
     @Field(() => Float, {nullable:true})
-    price?: number;
+    increment?: number;
 
     @Field(() => Float, {nullable:true})
-    lat?: number;
+    decrement?: number;
 
     @Field(() => Float, {nullable:true})
-    lng?: number;
+    multiply?: number;
 
     @Field(() => Float, {nullable:true})
-    realtorId?: number;
+    divide?: number;
 }

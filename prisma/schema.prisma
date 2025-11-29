@@ -95,6 +95,8 @@ model House {
   price       Int
   isRent      Boolean  @default(true)
   isSell      Boolean  @default(true)
+  lat         Float? // широта
+  lng         Float? // долгота
 
   realtor   User      @relation(fields: [realtorId], references: [id])
   realtorId Int
@@ -107,6 +109,7 @@ model House {
   @@index([isRent])
   @@index([isSell])
   @@index([createdAt])
+  @@index([lat, lng]) // быстрый поиск по координатам
 }
 
 model Appeals {

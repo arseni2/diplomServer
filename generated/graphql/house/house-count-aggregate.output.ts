@@ -45,6 +45,12 @@ export class HouseCountAggregate {
     isSell!: number;
 
     @Field(() => Int, {nullable:false})
+    lat!: number;
+
+    @Field(() => Int, {nullable:false})
+    lng!: number;
+
+    @Field(() => Int, {nullable:false})
     realtorId!: number;
 
     @Field(() => Int, {nullable:false})

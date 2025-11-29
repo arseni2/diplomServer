@@ -44,6 +44,12 @@ export class HouseCountAggregateInput {
     isSell?: true;
 
     @Field(() => Boolean, {nullable:true})
+    lat?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    lng?: true;
+
+    @Field(() => Boolean, {nullable:true})
     realtorId?: true;
 
     @Field(() => Boolean, {nullable:true})

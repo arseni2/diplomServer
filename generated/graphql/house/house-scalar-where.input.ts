@@ -5,6 +5,7 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { BoolFilter } from '../prisma/bool-filter.input';
+import { FloatNullableFilter } from '../prisma/float-nullable-filter.input';
 
 @InputType()
 export class HouseScalarWhereInput {
@@ -56,6 +57,12 @@ export class HouseScalarWhereInput {
 
     @Field(() => BoolFilter, {nullable:true})
     isSell?: BoolFilter;
+
+    @Field(() => FloatNullableFilter, {nullable:true})
+    lat?: FloatNullableFilter;
+
+    @Field(() => FloatNullableFilter, {nullable:true})
+    lng?: FloatNullableFilter;
 
     @Field(() => IntFilter, {nullable:true})
     realtorId?: IntFilter;
