@@ -94,6 +94,7 @@ model House {
   bio         String
   price       Int
   isRent      Boolean  @default(true)
+  isPopular   Boolean  @default(false)
   isSell      Boolean  @default(true)
   lat         Float? // широта
   lng         Float? // долгота

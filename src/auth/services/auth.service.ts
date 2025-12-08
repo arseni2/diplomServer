@@ -6,6 +6,7 @@ import {JwtService} from "@nestjs/jwt";
 import {AuthSuccessDto} from "../dto/AuthSuccess.dto";
 import {User} from "../../../generated/graphql/user/user.model";
 import {IPayload} from "../interfaces/payload.interface";
+import argon2 from "argon2";
 
 @Injectable()
 export class AuthService {
@@ -25,6 +26,11 @@ export class AuthService {
 
         if(!user) {
             throw new AppException({user: ["не найден"]}, 400)
+        }
+        const validPass = await argon2.verify(user.password, dto.password)
+        console.log(await argon2.hash(dto.password))
+        if(!validPass) {
+            throw new AppException({user: ["не правильный email или пароль"]}, 401)
         }
 
         return {

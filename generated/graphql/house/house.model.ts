@@ -48,6 +48,9 @@ export class House {
     @Field(() => Boolean, {defaultValue:true,nullable:false})
     isRent!: boolean;
 
+    @Field(() => Boolean, {defaultValue:false,nullable:false})
+    isPopular!: boolean;
+
     @Field(() => Boolean, {defaultValue:true,nullable:false})
     isSell!: boolean;
 

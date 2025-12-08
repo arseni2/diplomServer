@@ -62,6 +62,9 @@ export class HouseWhereUniqueInput {
     isRent?: BoolFilter;
 
     @Field(() => BoolFilter, {nullable:true})
+    isPopular?: BoolFilter;
+
+    @Field(() => BoolFilter, {nullable:true})
     isSell?: BoolFilter;
 
     @Field(() => FloatNullableFilter, {nullable:true})

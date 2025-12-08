@@ -42,6 +42,9 @@ export class HouseMinOrderByAggregateInput {
     isRent?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})
+    isPopular?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
     isSell?: `${SortOrder}`;
 
     @Field(() => SortOrder, {nullable:true})

@@ -44,6 +44,9 @@ export class HouseCreateInput {
     isRent?: boolean;
 
     @Field(() => Boolean, {nullable:true})
+    isPopular?: boolean;
+
+    @Field(() => Boolean, {nullable:true})
     isSell?: boolean;
 
     @Field(() => Float, {nullable:true})

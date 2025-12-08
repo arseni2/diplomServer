@@ -5,6 +5,7 @@ import {UserUpdateInput} from "../../../generated/graphql/user/user-update.input
 import {type IPayload} from "../../auth/interfaces/payload.interface";
 import {RoleEnum} from "../../auth/enums/role.enum";
 import {AppException} from "../../common/exceptions/App.exception";
+import argon2 from "argon2";
 
 
 @Injectable()
@@ -14,11 +15,13 @@ export class UserService {
     ) {
     }
 
-    create(dto: UserCreateInput) {
+    async create(dto: UserCreateInput) {
+        dto.role = {connect: {id: 1}}
+        dto.password = await argon2.hash(dto.password);
         return this.prisma.user.create({
             data: dto
         })
-    }
+    } //T1est@test.ru
 
     findOne(id: number) {
         return this.prisma.user.findUnique({
@@ -35,6 +38,9 @@ export class UserService {
     }
 
     update(user: IPayload, dto: UserUpdateInput) {
+        if(!dto.avatar?.connect?.id) {
+            dto.avatar = undefined
+        }
         return this.prisma.user.update({
             where: {id: user.id},
             data: dto
@@ -48,10 +54,10 @@ export class UserService {
     }
 
     async findAll(user: IPayload) {
-        // const dbUser = await this.findOne(user.id)
-        // if(dbUser?.roleId != RoleEnum.ADMIN) {
-        //     throw new AppException({user: ["нет прав"]}, HttpStatus.FORBIDDEN);
-        // }
+        const dbUser = await this.findOne(user.id)
+        if(dbUser?.roleId != RoleEnum.ADMIN) {
+            throw new AppException({user: ["нет прав"]}, HttpStatus.FORBIDDEN);
+        }
 
         return this.prisma.user.findMany({
             include: {

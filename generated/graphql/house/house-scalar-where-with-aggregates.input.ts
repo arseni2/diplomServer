@@ -56,6 +56,9 @@ export class HouseScalarWhereWithAggregatesInput {
     isRent?: BoolWithAggregatesFilter;
 
     @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    isPopular?: BoolWithAggregatesFilter;
+
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
     isSell?: BoolWithAggregatesFilter;
 
     @Field(() => FloatNullableWithAggregatesFilter, {nullable:true})

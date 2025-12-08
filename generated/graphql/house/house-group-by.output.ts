@@ -48,6 +48,9 @@ export class HouseGroupBy {
     isRent!: boolean;
 
     @Field(() => Boolean, {nullable:false})
+    isPopular!: boolean;
+
+    @Field(() => Boolean, {nullable:false})
     isSell!: boolean;
 
     @Field(() => Float, {nullable:true})

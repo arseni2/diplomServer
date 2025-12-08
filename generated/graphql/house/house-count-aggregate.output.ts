@@ -42,6 +42,9 @@ export class HouseCountAggregate {
     isRent!: number;
 
     @Field(() => Int, {nullable:false})
+    isPopular!: number;
+
+    @Field(() => Int, {nullable:false})
     isSell!: number;
 
     @Field(() => Int, {nullable:false})

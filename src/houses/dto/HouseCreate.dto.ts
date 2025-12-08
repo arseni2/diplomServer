@@ -43,4 +43,7 @@ export class HouseCreateDto {
 
     @Field(() => Float, {nullable:true})
     lng?: number;
+
+    @Field(() => Boolean, {nullable:true})
+    isPopular: boolean;
 }

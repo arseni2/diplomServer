@@ -49,6 +49,9 @@ export class HouseUncheckedUpdateWithoutFeaturesInput {
     isRent?: BoolFieldUpdateOperationsInput;
 
     @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isPopular?: BoolFieldUpdateOperationsInput;
+
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
     isSell?: BoolFieldUpdateOperationsInput;
 
     @Field(() => NullableFloatFieldUpdateOperationsInput, {nullable:true})
