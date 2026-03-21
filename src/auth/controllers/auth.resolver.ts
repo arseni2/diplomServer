@@ -7,6 +7,7 @@ import {AuthGuard} from "../guards/Auth.guard";
 import {User} from 'generated/graphql/user/user.model';
 import {GetUserDecorator} from "../decorators/GetUser.decorator";
 import {type IPayload} from "../interfaces/payload.interface";
+import { ForgotPasswordDto } from '../dto/ForgotPasswordInput.dto';
 
 @Resolver()
 export class AuthResolver {
@@ -33,5 +34,12 @@ export class AuthResolver {
     @UseGuards(AuthGuard)
     me(@GetUserDecorator() payload: IPayload) {
         return this.authService.me(payload)
+    }
+
+    @Mutation(() => AuthSuccessDto)
+    forgotPassword(
+        @Args('forgotPasswordDto') forgotPasswordInput: ForgotPasswordDto
+    ) {
+        return this.authService.forgotPassword(forgotPasswordInput.email)
     }
 }
